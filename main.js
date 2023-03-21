@@ -23,3 +23,36 @@ function uniteUnique(arr) {
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Convert HTML Entities
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+// convertHTML("Dolce & Gabbana") should return the string Dolce &amp; Gabbana.
+
+function convertHTML(str) {
+  var temp = str.split("");
+
+  for(let i = 0; i < temp.length; i++) {
+    switch(temp[i]) {
+      case '<':
+        temp[i] = "&lt;";
+        break;
+      case "&":
+        temp[i] = "&amp;";
+        break;
+      case ">":
+        temp[i] = "&gt;";
+        break;
+      case '"':
+        temp[i] = "&quot;";
+        break;
+      case "'":
+        temp[i] = "&apos;";
+        break;
+    }
+  }
+  temp = temp.join("");
+  console.log(temp);
+  return temp;
+}
+
+convertHTML("Dolce & Gabbana");

@@ -182,3 +182,49 @@ let onceFn = once(fnt)
 
 onceFn(1,2,3); // 6
 onceFn(2,3,6); // returns undefined without calling fn
+
+// Given an array arr and a chunk size size, return a chunked array. A chunked array contains the original elements in arr, but consists of subarrays each of length size. The length of the last subarray may be less than size if arr.length is not evenly divisible by size.
+
+// You may assume the array is the output of JSON.parse. In other words, it is valid JSON.
+
+// Please solve it without using lodash's _.chunk function.
+
+var chunk = function(arr, size) {
+    let newArray = [];
+
+    for (let i = 0; i < arr.length; i +=size) {
+        newArray.push(arr.slice(i, i + size))
+    }
+
+    console.log(newArray)
+
+    return newArray;
+};
+
+chunk([1,2,3,4,5], 2);
+
+// Create a class ArrayWrapper that accepts an array of integers in it's constructor. 
+// This class should have two features:
+
+// When two instances of this class are added together with the + operator, the resulting value is the sum of all the elements in both arrays.
+// When the String() function is called on the instance, it will return a comma separated string surrounded by brackets. For example, [1,2,3].
+
+var ArrayWrapper = function(nums) {
+
+    console.log(nums);
+};
+
+ArrayWrapper.prototype.valueOf = function() {
+    
+}
+
+ArrayWrapper.prototype.toString = function() {
+    
+}
+
+
+const obj1 = new ArrayWrapper([1,2]);
+const obj2 = new ArrayWrapper([3,4]);
+obj1 + obj2; // 10
+String(obj1); // "[1,2]"
+String(obj2); // "[3,4]"
